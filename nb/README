@@ -1,0 +1,87 @@
+Notes Buddy
+
+A general purpose note taking application.
+
+Features:
+  - Add/edit/delete 'nodes'
+  - Annotate with text or numeric fields.
+  - Find and query nodes.
+  - Sum up numeric fields.
+
+Examples:
+  Add some new nodes
+  $ nb add -.title "Bus fare to work" -.amt 2.75 -.cat "commute"
+  $ nb add -.title "McDonald's expense" -.amt 4.99 -.cat "dine_out"
+  $ nb add -.title "coffee" -.amt 1.75 -.cat "dine_out"
+  $ nb add -.title "lunch" -.amt 7.00 -.cat "food"
+  $ nb add -.title "Bus fare going home" -.amt 2.75 -.cat "commute"
+
+  Add a longer note interactively
+  $ nb add -pipe
+  .title Gettysburg Address
+  .author Abraham Lincoln
+  Four score and seven years ago our fathers brought forth on this
+  continent, a new nation, conceived in Liberty, and dedicated to
+  the proposition that all men are created equal.
+  <CTRL-D>
+
+  Query for nodes
+  $ nb find -select title,cat,amt -where "cat = 'commute'"
+  $ nb find -select title,amt -where "cat = 'dine_out' and amt > 5.0"
+
+  Query with sum (subtotals)
+  $ nb find -select title,amt -where "cat = 'dine_out'" -total amt
+
+  Full text search on nodes
+  $ nb find "sherlock holmes"
+
+  Specify a specific table for a node
+  $ nb add -tbl work -.title "Work Node" "This goes in work table"
+
+  Query on specific table
+  $ nb find -tbl work -select title,body
+
+  Eval mode
+  $ nb run "find -select title,amt -total amt"
+
+  List tables
+  $ nb info tables
+
+  List table fields
+  $ nb info fields nbdata
+
+
+You can associate as many fields as you want in a node. Fields may
+hold any kind of value, textual or numeric. Sqlite is used as the
+backing store of the nodes. As you add new unique fields to a node,
+the sqlite table is automatically altered to accomodate the new
+fields.
+
+Each node has a 'pubdate' and 'moddate' field in ISO 8601 datetime format 
+that can be used in queries. A way to more intelligently query date ranges
+is being planned in the future.
+
+Typeless fields are provided through the excellent sqlite library, which
+uses typeless table fields by design. It's the sqlite library which
+really makes this program possible. Sometimes I think that this app is
+really just an interface wrapper around sqlite!
+
+Future features to be developed:
+  GUI
+  Webservice and webapp
+  Date range queries
+
+Build:
+  $ ./b
+  will build the 'nb' executable.
+
+Environments:
+  Linux only for now. Not tested on Mac OS.
+
+License:
+  MIT
+
+Contact:
+  Twitter: @robdelacruz
+  Source: http://github.com/robdelacruz/nb
+

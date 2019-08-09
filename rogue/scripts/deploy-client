@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Copy websites files (html, css, js) to web root.
+# Note: To copy third party libs, run 'deploy-client-libs'.
+
+DEST=public
+mkdir -p $DEST
+cp -r dist/client/* $DEST
+cp -r client/*.html $DEST
+cp -r client/*.css $DEST
+cp -r client/images $DEST
+
+
+

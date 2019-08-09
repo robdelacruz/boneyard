@@ -1,0 +1,42 @@
+Table Maker
+
+Tools for creating and entering data tables.
+
+Use for:
+- Taking notes.
+- Personal information system.
+- Database management.
+
+Example - Entering a new record:
+
+Type 'n' to create a new record and enter the following:
+
+    This is a new record.
+    .date @@today
+    .author rob
+    .number_field 123.45
+
+
+This will create the following record in the currently selected table:
+
+    _id:            (auto-generated)
+    _body:          "This is a new record."
+    .date:          "2019-04-19"
+    author:         "rob"
+    number_field:   123.45
+
+Todo:
+- Reports
+- Additional Table utilities
+
+Dependencies:
+- Python3
+- SQLite with FTS5 Extension (https://www.sqlite.org/fts5.html)
+
+License:
+  MIT
+
+Contact:
+  Twitter: @robdelacruz
+  Source: http://github.com/robdelacruz/tbl-maker
+

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Copy third party libs to web root.
+DEST=public
+mkdir -p $DEST/socket.io-client
+cp -r node_modules/socket.io-client/dist $DEST/socket.io-client
+

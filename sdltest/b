@@ -1,0 +1,4 @@
+#!/bin/bash
+
+#cc -D_REENTRANT -o inv inv.c `pkg-config --cflags --libs sdl2`
+cc -D_REENTRANT main.c graphics.c canvas.c sprite.c event.c util.c -I/usr/include/SDL2 -lSDL2 -lSDL2_image -o t

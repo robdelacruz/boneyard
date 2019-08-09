@@ -1,0 +1,30 @@
+{
+  "name": "rogue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./dist/server/index.js",
+    "build-server": "tsc -p server",
+    "build-client": "webpack --mode development",
+    "deploy-client": "scripts/deploy-client",
+    "deploy-client-libs": "scripts/deploy-client-libs"
+  },
+  "author": "rob",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^9.6.5",
+    "@types/socket.io-client": "^1.4.32",
+    "ts-loader": "^4.2.0",
+    "typescript": "^2.8.1",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.0.14"
+  },
+  "dependencies": {
+    "@types/express": "^4.11.1",
+    "@types/socket.io": "^1.4.33",
+    "express": "^4.16.3",
+    "socket.io": "^2.1.0",
+    "socket.io-client": "^2.1.0"
+  }
+}

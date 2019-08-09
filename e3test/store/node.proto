@@ -1,0 +1,18 @@
+syntax = "proto3";
+package store;
+
+message Node {
+    string ID = 1;
+    string Hash = 2;
+    string Alias = 3;
+    string Title = 4;
+    string Assigned = 5;
+    string Body = 6;
+    repeated string Tags = 7;
+    string Createdt = 8;
+    string Updatedt = 9;
+}
+
+message NodeList {
+    repeated Node Items = 1;
+}

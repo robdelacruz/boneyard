@@ -1,0 +1,1 @@
+go build -i --tags "fts5" -o nb *.go
