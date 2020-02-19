@@ -1,0 +1,153 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-size: 1em;
+	font-family: Verdana, sans-serif;
+}
+
+.x-small-card {
+	font-size: 0.7em;
+}
+
+.xx-small-card {
+	font-size: 0.5em;
+}
+
+.body-content-card {
+	margin: 0 5em;
+}
+
+.masthead-card {
+	padding: 0.5em 2em;
+	background-color: #eeeeee;
+}
+.masthead-card h1 {
+}
+.masthead-card .quip {
+	font-size: smaller;
+	font-style: italic;
+}
+
+.pagefoot-card {
+	padding: 0.5em 2em;
+	background-color: #eeeeee;
+	border-top: dashed 1px;
+	clear: both;
+}
+.pagefoot-card p {
+	font-size: 0.8em;
+}
+.pagefoot-card address {
+	font-size:0.8em;
+	font-style: italic;
+}
+.pagefoot-card a {
+	color: inherit;
+}
+
+.horizontal-menu-card {
+	padding: 0.8em 0;
+}
+.horizontal-menu-card ul {
+	list-style: none;
+	margin: 0;
+}
+.horizontal-menu-card li {
+	display: inline-block;
+	margin: 0 0.5em 0 0;
+}
+.horizontal-menu-card li a {
+	color: inherit;
+}
+
+.main-content-card {
+	padding: 0 2em 2em 0;
+	width: 65%;
+	float: left;
+}
+
+.side-content-card {
+	padding: 0 0 2em 2em;
+	width: 25%;
+	float: left;
+}
+
+.article-card {
+	padding: 1em 0;
+}
+.article-card header {
+	font-size: 1.2em;
+	margin: 0 0 0.8em;
+}
+.article-card header h1 {
+	margin: 0 0 0.3em;
+}
+.article-card header h2 {
+	margin: 0 0 0.3em;
+	font-size: smaller;
+}
+.article-card header h1 a {
+	text-decoration: none;
+	color: inherit;
+}
+.article-card header .quip {
+	font-style: italic;
+	font-size: 0.6em;
+	margin: 0;
+	width: 90%;
+}
+.article-card p {
+	font-size: 1em;
+	margin: 0 0 1.2em;
+}
+.article-card ul, .article-card ol {
+	margin: 0 0 1.2em 1.5em;
+}
+.article-card a {
+	color: inherit;
+}
+.article-card h1, .article-card h2, .article-card h3, .article-card h4 {
+	font-size: 1em;
+	margin: 0 0 1em;
+}
+
+.byline-card {
+	font-size: 0.5em;
+	padding: 0.5em 0;
+	color: #333333;
+}
+.byline-card address {
+	display: inline;
+	font-style: italic;
+}
+.byline-card a[rel="author"] {
+	color: #333333;
+	font-weight: bold;
+	text-decoration: none;
+}
+.byline-card time {
+	display: inline;
+	padding: 0 0.5em;
+	font-style: italic;
+}
+
+.links-card {
+	padding: 1em 0;
+}
+.links-card h2 {
+	font-size: 1em;
+	margin: 0 0 0.5em;
+}
+.links-card ul {
+	list-style: none;
+}
+.links-card li {
+	font-size: 0.8em;
+}
+.links-card li a {
+	color: inherit;
+}
+
