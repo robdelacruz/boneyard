@@ -1,0 +1,4 @@
+*.db
+*.swp
+__pycache__/*
+test/

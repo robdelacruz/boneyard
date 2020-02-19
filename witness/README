@@ -1,0 +1,19 @@
+Witness - A Personal Organizer
+
+Use for:
+- Journal logs
+- Taking notes.
+- Remembering events.
+- Tracking tasks.
+
+Dependencies:
+- Python3
+- SQLite with FTS5 Extension (https://www.sqlite.org/fts5.html)
+
+License:
+  MIT
+
+Contact:
+  Twitter: @robdelacruz
+  Source: http://github.com/robdelacruz/witness
+
