@@ -1,0 +1,112 @@
+spot - browse and maintain tasks and notes
+
+- server program with webservice interface
+- client command-line program
+- web client
+
+- register as a user
+- log in as user
+
+- add a task
+- edit a task
+- assign task to someone else
+- update status of a task
+- browse tasks assigned to me
+- browse tasks with 'open' status
+- search tasks
+
+- add a note
+- edit a note
+- browse notes
+- search notes
+
+
+tables:
+
+enum status: open, active, closed
+
+[user]
+user_id
+alias
+
+[task]
+task_id
+title
+body
+tags
+status
+createdt
+user_id (FK)
+
+[note]
+note_id
+title
+body
+tags
+createdt
+user_id (FK)
+
+[session]
+session_key
+user_id (FK)
+
+
+logging in:
+You pass a session_key in a webservice request to identify yourself as a valid user.
+
+To get a session_key, issue a [POST /login {alias, password}] which will return a session_key you can use for all webservice requests. The session_key identifies which user you are in the system.
+
+Logout by issuing a [POST /logout {session_key}] which will make the session_key no longer valid in subsequent requests.
+
+Pass the session key by sk=nnn querystring.
+Sample: [GET /foo?sk=<session_key>]
+
+add a task:
+[POST /task {title, body, tags, status}]
+
+update a task:
+[PUT /task/1 {title, body, tags, status, assigneduserid}]
+
+list tasks:
+[GET /task]
+[GET /task?user_id=id1,id2,id3]
+[GET /task?user_alias=user1,user2]
+[GET /task?q=searchstr]
+[GET /task?tag=tag1,tag2]
+[GET /task?tag=tag1,tag2&user_alias=robdelacruz]
+[GET /task?status=open,active]
+[GET /task?status=open,active&tag=dec_release]
+[GET /task/1]
+
+[GET /task?fieldA=a,b,c]  (return tasks with fieldA having a, b, or c)
+[GET /task?fieldA=a:c]    (return tasks with fieldA matching a to c inclusive)
+
+fieldA=a,b,c  becomes "WHERE fieldA IN (a, b, c)"
+fieldA=a:c    becomes "WHERE fieldA BETWEEN a AND c"
+
+list users:
+[GET /user]
+[GET /user/1]
+
+
+Tests:
+curl -X POST -d '{"title": "Title 1", "body": "Body 1", "assignuserid": 1}' "localhost:8000/task/"
+
+curl -X PUT -d '{"id": 3, "title": "edited title 2", "body": "edited body 2", "assignuserid": 2}' "localhost:8000/task/"
+
+curl -X GET "localhost:8000/task/"
+curl -X GET "localhost:8000/task/3"
+
+
+spot cli commands:
+spot add --task -title "Task Title 1" -body "Description here" -tags "tag1, tag2" -status "open" -createdt "2019-10-17"
+spot list --task --id 123 (list id 123)
+spot list --task -id 10:15 (list id's 10 to 15)
+spot list --task -l 10 (last 10 tasks)
+spot list --task --dt 2019-10-01 (list 1 day)
+spot list --task --dt 2019-10-01:2019-10-31 (list date range)
+spot list --task --user robdelacruz --status "open,active" --tags "m1,ui"
+spot list --task -u robdelacruz -s "open,active" -t "m1,ui"
+
+--id, --(l)ast, --dt, --(u)ser, --(s)tatus, --(t)ags
+
